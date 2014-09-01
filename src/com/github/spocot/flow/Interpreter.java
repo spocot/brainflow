@@ -51,10 +51,11 @@ public class Interpreter {
 					int v = this.values[this.index];
 					System.out.print((char)v);
 					break;
-				case ',':this.values[this.index] =  this.in.nextInt();break;
+				case ',':this.values[this.index] = this.in.next().charAt(0);System.out.println("ValRead:[" + this.values[this.index] + "]");break;
 				case '^':this.index = this.values[this.index];break;// Jumps to the index specified in the current cell.
 				case '=':this.values[index] = this.index;break;// Sets the value at cell #x to x
 				case '&':this.values[index] = this.values[this.values[index]];break;// If cell contains X, makes value of current cell equal to value in cell X
+				case '@':System.out.print("[:" + this.index + ":]");
 				default:
 					//Ignore others
 					break;
